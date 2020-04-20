@@ -1,0 +1,68 @@
+.container {
+  max-width: 100%;
+  margin-bottom: 3rem;
+}
+
+.cocktail-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-family: Dealers;
+  font-size: 1.8rem;
+  width: 95%;
+  margin: 1.8vh 3vw;
+}
+
+.underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  bottom: -2vh;
+  left: 0;
+  right: 0;
+  border-top: 2px solid #f7d5ba;
+  border-bottom: 2px solid #f7d5ba;
+}
+
+.ingredients {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ba4333;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 3vh;
+  margin-bottom: 1.5vh;
+}
+
+.quote {
+  font-family: Baskerville;
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 1vh 10vw;
+  margin-bottom: 0;
+}
+
+.quote .main {
+  font-family: Baskerville;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.attribution {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 10vh;
+}
