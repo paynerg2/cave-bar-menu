@@ -1,48 +1,28 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
-const BlogIndex = ({ data, location }) => {
+import CoverImage from "../components/coverImage"
+import { Cocktail } from "../components/cocktail"
+
+const CocktailIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
-
+  const cocktails = data.allContentfulCocktail.edges
+  console.log(cocktails)
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+      <SEO title="All cocktails" />
+      <CoverImage />
+      {cocktails.map(({ node }) => (
+        <Cocktail key={node.name} node={node} />
+      ))}
     </Layout>
   )
 }
 
-export default BlogIndex
+export default CocktailIndex
 
 export const pageQuery = graphql`
   query {
@@ -51,17 +31,20 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allContentfulCocktail(sort: { fields: name, order: ASC }) {
       edges {
         node {
-          excerpt
-          fields {
-            slug
+          name
+          ingredients
+          description {
+            internal {
+              content
+            }
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
+          image {
+            fluid {
+              src
+            }
           }
         }
       }
