@@ -2,6 +2,8 @@ const dotenv = require("dotenv")
 
 if (process.env.NODE_ENV != "production") {
   dotenv.config()
+} else {
+  dotenv.config()
 }
 
 module.exports = {
@@ -10,6 +12,7 @@ module.exports = {
     author: {
       name: `Rodney Payne`,
     },
+    siteUrl: `https://cave-bar-menu.herokuapp.com`,
     description: `A menu for a friend's home bar.`,
   },
   plugins: [
@@ -50,7 +53,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
