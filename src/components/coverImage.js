@@ -12,7 +12,7 @@ const CoverImage = () => {
         relativePath: { eq: "jon-cellier-jbeW1fG79HI-unsplash.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 1080) {
+          fluid(maxWidth: 1080, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
