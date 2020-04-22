@@ -5,10 +5,3 @@ workflows:
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git
-jobs:
-  build:
-    docker:
-      - image: cimg/base:2020.01
-    working_directory: ~/cave-bar-menu
-    steps:
-      -
