@@ -26,7 +26,7 @@ const CoverImage = () => {
     <>
       <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 
-      <div className="quote main">
+      <div className="quote">
         <div>{quotation.quote}</div>
         <div className="quote attribution">
           <span

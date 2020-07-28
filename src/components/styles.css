@@ -51,12 +51,6 @@
   margin-bottom: 0;
 }
 
-.quote .main {
-  font-family: Baskerville;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
 .attribution {
   display: flex;
   flex-direction: row;
