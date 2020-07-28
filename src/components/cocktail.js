@@ -11,7 +11,11 @@ export const Cocktail = ({ node }) => {
     <div className="container">
       <div className="cocktail-name underline">{node.name}</div>
       <div className="ingredients">{ingredientList}</div>
-      {node.image && <img src={node.image.fluid.src} alt={node.name} />}
+      {node.image && (
+        <a href={`/${node.slug}`}>
+          <img src={node.image.fluid.src} alt={node.name} />
+        </a>
+      )}
       {node.description && (
         <div className="quote">{node.description.internal.content}</div>
       )}
