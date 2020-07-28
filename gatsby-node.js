@@ -20,7 +20,9 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: node.slug,
         component: path.resolve(`./src/templates/cocktailTemplate.js`),
-        context: node.slug,
+        context: {
+          slug: node.slug,
+        },
       })
   })
 }
