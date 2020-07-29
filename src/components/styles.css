@@ -60,3 +60,37 @@
   margin-right: 0;
   margin-bottom: 10vh;
 }
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  width: 100%;
+  z-index: 3;
+  background-color: #361108;
+  color: #ba4333;
+}
+
+.section-header {
+  font-size: 2em;
+  font-weight: bold;
+  height: 1.5em;
+  display: flex;
+  justify-content: center;
+  line-height: 1.5em;
+}
+
+#menu {
+  /* position: absolute; */
+  position: fixed;
+  left: calc(100% - 7vh);
+  top: -1px;
+  font-size: 40px;
+  height: 7vh;
+  width: 7vh;
+  color: white;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

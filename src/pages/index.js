@@ -6,17 +6,23 @@ import SEO from "../components/seo"
 
 import CoverImage from "../components/coverImage"
 import { Cocktail } from "../components/cocktail"
+import { StickySectionHeader } from "../components/stickySectionHeader"
 
 const CocktailIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const cocktails = data.allContentfulCocktail.edges
-  console.log(cocktails)
+  const categories = data.allContentfulCocktail.group
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All cocktails" />
       <CoverImage />
-      {cocktails.map(({ node }) => (
-        <Cocktail key={node.name} node={node} />
+      {categories.map(({ nodes }) => (
+        <>
+          <StickySectionHeader>{nodes[0].baseSpirit}</StickySectionHeader>
+          {nodes.map(cocktail => (
+            <Cocktail key={cocktail.name} node={cocktail} />
+          ))}
+        </>
       ))}
     </Layout>
   )
@@ -32,8 +38,8 @@ export const pageQuery = graphql`
       }
     }
     allContentfulCocktail(sort: { fields: name, order: ASC }) {
-      edges {
-        node {
+      group(field: baseSpirit) {
+        nodes {
           name
           ingredients
           description {
@@ -47,6 +53,7 @@ export const pageQuery = graphql`
             }
           }
           slug
+          baseSpirit
         }
       }
     }
