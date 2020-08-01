@@ -64,7 +64,7 @@
 .sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: -1px;
+  top: calc(10vh - 1px);
   width: 100%;
   z-index: 3;
   background-color: #361108;
@@ -80,17 +80,69 @@
   line-height: 1.5em;
 }
 
+#recipe-name {
+  margin-bottom: 6vh;
+}
+
+.recipe + .ingredients {
+  list-style: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 5vw;
+  padding: 0.8em;
+  border-radius: 0.8em;
+  color: #f7d5ba;
+}
+
+.instructions {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  color: #f7d5ba;
+  margin: 3vw;
+  padding: 0.8em;
+  border-radius: 0.8em;
+}
+
+.source {
+  color: #ba4333;
+  margin: 5vw;
+  font-size: 1.3em;
+}
+
+#dropdown-menu {
+}
+
 #menu {
   /* position: absolute; */
   position: fixed;
-  left: calc(100% - 7vh);
+  left: calc(100% - 10vh);
   top: -1px;
   font-size: 40px;
-  height: 7vh;
-  width: 7vh;
-  color: white;
+  height: 10vh;
+  width: 10vh;
+  color: #fff;
   z-index: 5;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.menu-wrapper {
+  height: 30vh;
+  width: 40vw;
+  background-color: #f7d5ba;
+  margin-right: -40vw;
+  margin-top: 0;
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}
+
+.menu-open {
+  margin-right: 0;
+  opacity: 1;
 }
