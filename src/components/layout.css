@@ -2,6 +2,7 @@ html {
   font-family: Dealers;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -614,6 +615,13 @@ pre code:after,
 pre tt:before,
 pre tt:after {
   content: "";
+}
+*:focus {
+  outline: none;
+}
+button {
+  border: none;
+  background-color: inherit;
 }
 @media only screen and (max-width: 480px) {
   html {

@@ -12,8 +12,11 @@ const CocktailIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const categories = data.allContentfulCocktail.group
 
+  // Used (in /Layout/Menu) to navigate to StickySectionHeader with matching ID
+  const spirits = categories.map(({ nodes }) => nodes[0].baseSpirit)
+
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} sectionHeaders={spirits}>
       <SEO title="All cocktails" />
       <CoverImage />
       {categories.map(({ nodes }) => (
