@@ -25,7 +25,7 @@ const Layout = ({ children, showMenu = true, sectionHeaders }) => {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
+          maxWidth: "70%",
         }}
       >
         <main>{children}</main>

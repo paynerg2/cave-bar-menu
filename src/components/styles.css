@@ -1,13 +1,10 @@
 .container {
+  /* TODO: Add media queries here to change between layouts. */
   max-width: 100%;
   margin-bottom: 3rem;
 }
 
 .cocktail-name {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
   font-family: Dealers;
   font-size: 1.8rem;
   width: 95%;
@@ -23,7 +20,6 @@
   content: "";
   position: absolute;
   height: 10px;
-  width: 100%;
   bottom: -2vh;
   left: 0;
   right: 0;
@@ -48,6 +44,11 @@
   line-height: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   margin: 1vh 10vw;
+  margin-bottom: 0;
+}
+
+.description {
+  margin: 2vh 3.5vw;
   margin-bottom: 0;
 }
 
@@ -78,6 +79,11 @@
   display: flex;
   justify-content: center;
   line-height: 1.5em;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
 }
 
 #recipe-name {
@@ -181,4 +187,126 @@
   font-family: Dealers;
   height: 7vh;
   padding: 0 4vw;
+}
+
+@media screen and (max-width: 640px) {
+  /* Mobile */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .underline::after {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1080px) {
+  /* Tablet */
+
+  /* Cocktail Cell Grid */
+  .container {
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+  }
+
+  .container:nth-child(even) > #cocktail-heading {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .container:nth-child(odd) > #cocktail-heading {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .container:nth-child(even) > .image {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  .container:nth-child(odd) > .image {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .container:nth-child(even) > .quote {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .container:nth-child(odd) > .quote {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .underline::after {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  /* Main Page Grid */
+  #cocktail-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 49%);
+    column-gap: 2%;
+  }
+
+  /* Cocktail cell grid */
+  .container {
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    row-gap: 10%;
+    height: 35%;
+  }
+
+  .container > #cocktail-heading {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .container > .image {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .container > .quote {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .cocktail-name {
+    margin: 0;
+    text-align: center;
+  }
+
+  .description {
+    margin: 0 2vw;
+    text-align: center;
+  }
+
+  .underline::after {
+    display: none;
+  }
 }
