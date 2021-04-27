@@ -4,23 +4,23 @@ import { toStringList } from "../utils/toStringList"
 
 import "./styles.css"
 
-export const Cocktail = ({ node }) => {
-  const ingredientList = toStringList(node.ingredients)
+export const Cocktail = ({ cocktail }) => {
+  const ingredientList = toStringList(cocktail.ingredients)
 
-  return node ? (
+  return cocktail ? (
     <li className="container">
       <div id="cocktail-heading">
-        <div className="cocktail-name underline">{node.name}</div>
+        <div className="cocktail-name underline">{cocktail.name}</div>
         <div className="ingredients">{ingredientList}</div>
       </div>
-      {node.image && (
-        <a className="image" href={`/${node.slug}`}>
-          <img src={node.image.fluid.src} alt={node.name} />
+      {cocktail.image && (
+        <a className="image" href={`/${cocktail.slug}`}>
+          <img src={cocktail.image.fluid.src} alt={cocktail.name} />
         </a>
       )}
-      {node.description && (
+      {cocktail.description && (
         <div className="quote description">
-          {node.description.internal.content}
+          {cocktail.description.internal.content}
         </div>
       )}
     </li>

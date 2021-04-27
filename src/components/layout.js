@@ -6,8 +6,9 @@ import Header from "./header"
 import Footer from "./footer"
 import { Menu } from "./menu"
 import "./layout.css"
+import "./styles.css"
 
-const Layout = ({ children, showMenu = true, sectionHeaders }) => {
+const Layout = ({ children, location, filteringOptions, showMenu = true }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -21,12 +22,15 @@ const Layout = ({ children, showMenu = true, sectionHeaders }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      {showMenu && <Menu sectionHeaders={sectionHeaders} />}
+      {showMenu && (
+        <Menu location={location} filteringOptions={filteringOptions} />
+      )}
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: "70%",
-        }}
+        id="mainContainer"
+        // style={{
+        //   margin: `0 auto`,
+        //   maxWidth: "70%",
+        // }}
       >
         <main>{children}</main>
         <Footer />

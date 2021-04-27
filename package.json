@@ -10,7 +10,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^2.20.25",
-    "gatsby-image": "^2.3.4",
+    "gatsby-image": "^3.4.0",
     "gatsby-plugin-feed": "^2.4.3",
     "gatsby-plugin-google-analytics": "^2.2.4",
     "gatsby-plugin-manifest": "^2.3.5",
@@ -32,6 +32,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-select": "^4.3.0",
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",

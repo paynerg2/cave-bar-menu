@@ -6,27 +6,71 @@ import SEO from "../components/seo"
 
 import CoverImage from "../components/coverImage"
 import { Cocktail } from "../components/cocktail"
-import { StickySectionHeader } from "../components/stickySectionHeader"
+import { getFilterParams } from "../utils/getFilterParams"
+import { inclusiveFilter, exclusiveFilter } from "../utils/filters"
 
 const CocktailIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const categories = data.allContentfulCocktail.group
 
-  // Used (in /Layout/Menu) to navigate to StickySectionHeader with matching ID
-  const spirits = categories.map(({ nodes }) => nodes[0].baseSpirit)
+  // Placeholder values
+  // TODO: Update data models & add GraphQL queries for these lists.
+
+  const spirits = data.allContentfulCocktail.baseSpirits.map(s =>
+    s.toLowerCase()
+  )
+  // Filter repeats from the base spirit list
+  const ingredients = data.allContentfulCocktail.ingredients
+    .map(s => s.toLowerCase())
+    .filter(s => !spirits.includes(s))
+  const styles = ["classic", "modern", "simple", "tiki", "desert", "punch"]
+  // const styles = data.allContentfulCocktails.styles
+  // const flavorProfiles - data.allContentfulCocktails.flavorProfiles
+
+  const flavorProfiles = [
+    "sour",
+    "sweet",
+    "gentle",
+    "boozy",
+    "refreshing",
+    "dry",
+  ]
+  const filteringOptions = {
+    spirits,
+    ingredients,
+    styles,
+    flavorProfiles,
+  }
+
+  // Generate filters from url query parameters
+  const url = new URL(location.href)
+  const params = new URLSearchParams(url.search.slice(1))
+  let filters = getFilterParams(params)
+
+  const filteredCocktails = data.allContentfulCocktail.nodes
+    .filter(cocktail =>
+      exclusiveFilter(cocktail.baseSpirit, filters.baseSpirit)
+    )
+    .filter(cocktail => exclusiveFilter(cocktail.style, filters.style))
+    .filter(cocktail =>
+      inclusiveFilter(cocktail.ingredients, filters.ingredients)
+    )
+    .filter(cocktail =>
+      inclusiveFilter(cocktail.flavorProfile, filters.flavorProfile)
+    )
 
   return (
-    <Layout location={location} title={siteTitle} sectionHeaders={spirits}>
+    <Layout
+      location={location}
+      title={siteTitle}
+      filteringOptions={filteringOptions}
+    >
       <SEO title="All cocktails" />
       <CoverImage />
-      {categories.map(({ nodes }) => (
-        <>
-          <StickySectionHeader>{nodes[0].baseSpirit}</StickySectionHeader>
-          {nodes.map(cocktail => (
-            <Cocktail key={cocktail.name} node={cocktail} />
-          ))}
-        </>
-      ))}
+      <ul id="cocktail-list">
+        {filteredCocktails.map(cocktail => (
+          <Cocktail key={cocktail.name} cocktail={cocktail} />
+        ))}
+      </ul>
     </Layout>
   )
 }
@@ -41,24 +85,24 @@ export const pageQuery = graphql`
       }
     }
     allContentfulCocktail(sort: { fields: name, order: ASC }) {
-      group(field: baseSpirit) {
-        nodes {
-          name
-          ingredients
-          description {
-            internal {
-              content
-            }
+      nodes {
+        name
+        ingredients
+        description {
+          internal {
+            content
           }
-          image {
-            fluid {
-              src
-            }
-          }
-          slug
-          baseSpirit
         }
+        image {
+          fluid(maxWidth: 680) {
+            src
+          }
+        }
+        slug
+        baseSpirit
       }
+      baseSpirits: distinct(field: baseSpirit)
+      ingredients: distinct(field: ingredients)
     }
   }
 `
