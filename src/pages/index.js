@@ -12,28 +12,16 @@ import { inclusiveFilter, exclusiveFilter } from "../utils/filters"
 const CocktailIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
-  // Placeholder values
-  // TODO: Update data models & add GraphQL queries for these lists.
-
+  /* Get filtering options */
   const spirits = data.allContentfulCocktail.baseSpirits.map(s =>
     s.toLowerCase()
   )
-  // Filter repeats from the base spirit list
+  // Remove repeats from the base spirit list
   const ingredients = data.allContentfulCocktail.ingredients
     .map(s => s.toLowerCase())
     .filter(s => !spirits.includes(s))
-  // const styles = ["classic", "modern", "simple", "tiki", "desert", "punch"]
   const styles = data.allContentfulCocktail.styles
   const flavorProfiles = data.allContentfulCocktail.flavorProfiles
-
-  // const flavorProfiles = [
-  //   "sour",
-  //   "sweet",
-  //   "gentle",
-  //   "boozy",
-  //   "refreshing",
-  //   "dry",
-  // ]
 
   const filteringOptions = {
     spirits,
