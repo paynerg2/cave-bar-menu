@@ -25,13 +25,7 @@ const Layout = ({ children, location, filteringOptions, showMenu = true }) => {
       {showMenu && (
         <Menu location={location} filteringOptions={filteringOptions} />
       )}
-      <div
-        id="mainContainer"
-        // style={{
-        //   margin: `0 auto`,
-        //   maxWidth: "70%",
-        // }}
-      >
+      <div id="mainContainer">
         <main>{children}</main>
         <Footer />
       </div>

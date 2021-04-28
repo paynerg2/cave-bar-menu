@@ -11,7 +11,7 @@ export const exclusiveFilter = (value, filter) => {
   if (filter === null) {
     return true
   }
-  return value.toLowerCase() === filter
+  return value.toLowerCase() === filter.toLowerCase()
 }
 
 /**
@@ -28,7 +28,8 @@ export const inclusiveFilter = (values, filters) => {
   if (values === null) {
     return false
   }
+  filters = filters.map(filter => filter.toLowerCase())
 
   //Check to see if ANY OF the filter values are in the list of ingredients.
-  return values.some(value => filters.includes(value))
+  return values.some(value => filters.includes(value.toLowerCase()))
 }

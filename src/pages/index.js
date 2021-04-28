@@ -22,18 +22,19 @@ const CocktailIndex = ({ data, location }) => {
   const ingredients = data.allContentfulCocktail.ingredients
     .map(s => s.toLowerCase())
     .filter(s => !spirits.includes(s))
-  const styles = ["classic", "modern", "simple", "tiki", "desert", "punch"]
-  // const styles = data.allContentfulCocktails.styles
-  // const flavorProfiles - data.allContentfulCocktails.flavorProfiles
+  // const styles = ["classic", "modern", "simple", "tiki", "desert", "punch"]
+  const styles = data.allContentfulCocktail.styles
+  const flavorProfiles = data.allContentfulCocktail.flavorProfiles
 
-  const flavorProfiles = [
-    "sour",
-    "sweet",
-    "gentle",
-    "boozy",
-    "refreshing",
-    "dry",
-  ]
+  // const flavorProfiles = [
+  //   "sour",
+  //   "sweet",
+  //   "gentle",
+  //   "boozy",
+  //   "refreshing",
+  //   "dry",
+  // ]
+
   const filteringOptions = {
     spirits,
     ingredients,
@@ -100,9 +101,14 @@ export const pageQuery = graphql`
         }
         slug
         baseSpirit
+        style
+        flavorProfile
       }
       baseSpirits: distinct(field: baseSpirit)
       ingredients: distinct(field: ingredients)
+      styles: distinct(field: style)
+      flavorProfiles: distinct(field: flavorProfile)
+      names: distinct(field: name)
     }
   }
 `
