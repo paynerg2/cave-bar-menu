@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { navigate, Link } from "gatsby"
+import { navigate } from "gatsby"
 
 import Select from "./select"
 import { Button } from "./button"
@@ -28,8 +28,6 @@ export const Menu = ({ location, filteringOptions }) => {
       navigate("/")
     }
   }
-
-  // TODO: Style react-select components appropriately.
 
   return (
     <div>
