@@ -1,7 +1,8 @@
 import React, { useState } from "react"
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 
 import Select from "./select"
+import { Button } from "./button"
 import { cocktailParams } from "../utils/constants"
 import { createSelectOptions } from "../utils/createSelectOptions"
 import { getSearchParams } from "../utils/getSearchParams"
@@ -79,6 +80,7 @@ export const Menu = ({ location, filteringOptions }) => {
           options={flavorProfileOptions}
           onChange={handleChange}
         />
+        <Button to="/random">Random</Button>
       </div>
     </div>
   )

@@ -96,7 +96,6 @@ export const pageQuery = graphql`
       ingredients: distinct(field: ingredients)
       styles: distinct(field: style)
       flavorProfiles: distinct(field: flavorProfile)
-      names: distinct(field: name)
     }
   }
 `

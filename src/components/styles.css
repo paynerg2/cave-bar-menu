@@ -176,19 +176,6 @@
   flex-direction: column;
 }
 
-#sidenav a,
-#sidenav a:focus,
-#sidenav a:active {
-  font-family: Dealers;
-  font-size: 2em;
-  color: #ba4333;
-  text-decoration: none;
-  font-weight: bold;
-  height: 5vh;
-  width: 100%;
-  margin: 0.5vh 6vw;
-}
-
 @media screen and (max-width: 640px) {
   /* Mobile */
   .container {
@@ -211,6 +198,10 @@
 
   .menu-open {
     width: 50vw;
+  }
+
+  .description {
+    margin-top: 0;
   }
 
   /* Cocktail Cell Grid */
@@ -326,4 +317,31 @@
   .underline::after {
     display: none;
   }
+}
+
+.button,
+.button:focus,
+.button:active {
+  font-family: Dealers;
+  font-size: 2em;
+  color: #ba4333;
+  text-decoration: none;
+  font-weight: bold;
+  height: auto;
+  line-height: 100%;
+  width: min(70%, 50vh);
+  margin: 5vh auto;
+  text-align: center;
+  padding: 2vh 0;
+  background-color: #361108;
+  border-radius: 0.15em;
+}
+
+.button > a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: #ba4333;
+  text-align: center;
 }
