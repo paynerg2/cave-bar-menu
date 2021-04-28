@@ -31,7 +31,11 @@ const CocktailIndex = ({ data, location }) => {
   }
 
   // Generate filters from url query parameters
-  const url = new URL(location.href)
+  let siteUrl =
+    process.env.NODE_ENV === "production"
+      ? `${data.site.siteMetadata.siteUrl}${location.pathname}`
+      : location.href
+  const url = new URL(siteUrl)
   const params = new URLSearchParams(url.search.slice(1))
   let filters = getFilterParams(params)
 
@@ -71,6 +75,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     allContentfulCocktail(sort: { fields: name, order: ASC }) {
