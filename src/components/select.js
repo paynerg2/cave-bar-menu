@@ -67,6 +67,8 @@ const StyledSelect = props => (
       DropdownIndicator: () => null,
       IndicatorSeparator: () => null,
     }}
+    inputProps={{ readOnly: true }}
+    isSearchable={false}
   />
 )
 
