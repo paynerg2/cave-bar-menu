@@ -73,17 +73,5 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        custom: {
-          families: ["Baskerville, Dealers", "Montclar"],
-          urls: [`fonts/fonts.css`],
-        },
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

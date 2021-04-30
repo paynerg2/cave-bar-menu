@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Baskerville";
+  src: url("/fonts/BASKE9.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Dealers";
+  src: url("/fonts/Dealers\ -\ Solid.otf");
+}
+
+@font-face {
+  font-family: "Montclar";
+  src: url("/fonts/Montclar.otf");
+}

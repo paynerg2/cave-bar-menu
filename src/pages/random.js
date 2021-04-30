@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -10,21 +10,24 @@ import { Button } from "../components/button"
 
 const CocktailIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-
-  /* Get filtering options */
   const cocktails = data.allContentfulCocktail.nodes
-  const randomlySelectedCocktail =
-    cocktails[Math.floor(Math.random() * cocktails.length)]
+
+  const [randomCocktail, setRandomCocktail] = useState()
+
+  useEffect(() => {
+    let randomIndex = Math.floor(Math.random() * cocktails.length)
+    const randomlySelectedCocktail = cocktails[randomIndex]
+    setRandomCocktail(randomlySelectedCocktail)
+  }, [])
 
   return (
     <Layout location={location} title={siteTitle} showMenu={false}>
       <SEO title="All cocktails" />
       <CoverImage />
       <ul id="cocktail-list">
-        <Cocktail
-          key={randomlySelectedCocktail.name}
-          cocktail={randomlySelectedCocktail}
-        />
+        {randomCocktail && (
+          <Cocktail key={randomCocktail.name} cocktail={randomCocktail} />
+        )}
       </ul>
       <Button to="/">Main Menu</Button>
     </Layout>
