@@ -33,7 +33,7 @@ const CocktailIndex = ({ data, location }) => {
   // Generate filters from url query parameters
   let siteUrl =
     process.env.NODE_ENV === "production"
-      ? `${data.site.siteMetadata.siteUrl}${location.pathname}`
+      ? `${data.site.siteMetadata.siteUrl}${location.href}`
       : location.href
   const url = new URL(siteUrl)
   const params = new URLSearchParams(url.search.slice(1))
