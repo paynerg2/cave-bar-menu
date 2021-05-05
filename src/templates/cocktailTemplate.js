@@ -7,6 +7,7 @@ export default function CocktailRecipe({ data }) {
   console.log(data)
   const cocktail = data.contentfulCocktail
   const recipes = cocktail.recipe && cocktail.recipe.recipes
+  const noRecipeMessage = `There is no recipe available for ${cocktail.name} yet.`
 
   return (
     <Layout showMenu={false}>
@@ -14,8 +15,19 @@ export default function CocktailRecipe({ data }) {
         {cocktail.name}
       </h1>
       <div>
-        {recipes &&
-          recipes.map(recipe => <Recipe key={recipe.source} recipe={recipe} />)}
+        {recipes ? (
+          recipes.map(recipe => <Recipe key={recipe.source} recipe={recipe} />)
+        ) : (
+          <div
+            style={{
+              fontSize: "2em",
+              textAlign: "center",
+              fontFamily: "Montclar",
+            }}
+          >
+            {noRecipeMessage}
+          </div>
+        )}
       </div>
     </Layout>
   )

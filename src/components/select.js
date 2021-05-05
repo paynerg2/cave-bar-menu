@@ -57,18 +57,27 @@ const customStyles = {
     padding: 20,
     fontSize: "2rem",
   }),
+  clearIndicator: provided => ({
+    ...provided,
+    color: "hsl(0,0%,50%)",
+  }),
+  indicatorSeparator: provided => ({
+    ...provided,
+    backgroundColor: "hsl(0,0%,50%)",
+  }),
+  dropdownIndicator: provided => ({
+    ...provided,
+    color: "hsl(0,0%,50%)",
+  }),
 }
 
 const StyledSelect = props => (
   <Select
     styles={customStyles}
     {...props}
-    components={{
-      DropdownIndicator: () => null,
-      IndicatorSeparator: () => null,
-    }}
     inputProps={{ readOnly: true }}
     isSearchable={false}
+    openMenuOnClick={false}
   />
 )
 
