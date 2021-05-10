@@ -57,7 +57,7 @@ const CocktailIndex = ({ data, location }) => {
       title={siteTitle}
       filteringOptions={filteringOptions}
     >
-      <SEO title="All cocktails" />
+      <SEO title="Main Menu" />
       <CoverImage />
       <ul id="cocktail-list">
         {filteredCocktails.map(cocktail => (

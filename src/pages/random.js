@@ -22,7 +22,7 @@ const CocktailIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle} showMenu={false}>
-      <SEO title="All cocktails" />
+      <SEO title="Random Cocktail" />
       <CoverImage />
       <ul id="cocktail-list">
         {randomCocktail && (
