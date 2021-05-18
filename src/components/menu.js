@@ -21,7 +21,6 @@ export const Menu = ({ location, filteringOptions }) => {
   )
 
   const handleChange = (value, action) => {
-    console.log(action)
     const searchParams = getSearchParams(location, action.name, value)
     if (searchParams.toString() !== "") {
       navigate("?" + searchParams.toString())

@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import { Recipe } from "../components/recipe"
 
 export default function CocktailRecipe({ data }) {
-  console.log(data)
   const cocktail = data.contentfulCocktail
   const recipes = cocktail.recipe && cocktail.recipe.recipes
   const noRecipeMessage = `There is no recipe available for ${cocktail.name} yet.`
