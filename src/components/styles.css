@@ -177,7 +177,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 530px) {
   /* Mobile */
   .container {
     display: flex;
@@ -190,7 +190,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1080px) {
+@media screen and (min-width: 540px) and (max-width: 1080px) {
   /* Tablet */
   #mainContainer {
     margin: 0 auto;
