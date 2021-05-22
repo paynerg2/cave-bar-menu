@@ -17,9 +17,9 @@ const CocktailIndex = ({ data, location }) => {
     s.toLowerCase()
   )
   // Remove repeats from the base spirit list
-  const ingredients = data.allContentfulCocktail.ingredients
-    .map(s => s.toLowerCase())
-    .filter(s => !spirits.includes(s))
+  const ingredients = data.allContentfulCocktail.ingredients.map(s =>
+    s.toLowerCase()
+  )
   const styles = data.allContentfulCocktail.styles
   const flavorProfiles = data.allContentfulCocktail.flavorProfiles
 
