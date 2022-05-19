@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "cave-bar-menu",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Menu for Cave Bar",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Rodney Payne",
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^2.20.25",
@@ -42,15 +39,14 @@
   "devDependencies": {
     "prettier": "2.0.4"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://cave-bar-menu.herokuapp.com",
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/paynerg2/cave-bar-menu"
   },
   "scripts": {
     "build": "gatsby build",
