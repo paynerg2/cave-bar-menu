@@ -4,6 +4,9 @@
   "description": "Menu for Cave Bar",
   "version": "0.1.0",
   "author": "Rodney Payne",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^2.20.25",
