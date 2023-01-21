@@ -52,7 +52,7 @@
     "url": "git+https://github.com/paynerg2/cave-bar-menu"
   },
   "scripts": {
-    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
